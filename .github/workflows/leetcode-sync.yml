@@ -9,10 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync
+        id: sync
         uses: joshcai/leetcode-sync@v1.7
+        continue-on-error: true
         with:
           github-token: ${{ github.token }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           verbose: true
           commit-header: "[LeetCode Sync]"
+      - name: Warn when LeetCode sync fails
+        if: ${{ steps.sync.outcome == 'failure' }}
+        run: echo "::warning::LeetCode sync failed (often due to expired LEETCODE_CSRF_TOKEN or LEETCODE_SESSION). Refresh these secrets and re-run."
