@@ -1,11 +1,28 @@
 class Solution {
 public:
     bool rotateString(string s, string goal) {
-        if (s.length() != goal.length()) {
+        int i = 0; 
+        int n ; 
+        n=s.size();
+        int g ; 
+        g=goal.size();
+        if(n!=g)
+        {
             return false;
         }
+        else{
+        for(i=0;i<n;i++)
+        {
+            string temp ; 
+            temp=s;
+            rotate(temp.begin() , temp.begin()+i, temp.end());
+            if(temp==goal)
+            {
+                return true ; 
+            }
+        }
         
-        string concatenated = s + s;
-        return concatenated.find(goal) != string::npos;
+    }
+    return false;
     }
 };
