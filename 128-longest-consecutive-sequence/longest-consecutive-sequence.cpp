@@ -15,12 +15,12 @@ public:
         int cnt = 1 ;
         int x = 1 ;
         int max1 = 0 ; 
-        for(auto it : st)
+        for(auto i : st)
         {
-            if(st.find(it-1)==st.end())
+            if(st.find(i -1)==st.end())
             {
                 cnt = 1 ; 
-                x=it;
+                x=i;
                 while(st.find(x+1)!=st.end())
                 {
                     cnt++;
