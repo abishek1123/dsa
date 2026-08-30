@@ -7,7 +7,6 @@ public:
         int j = 0 ; 
         int count=0;
         queue<int> q ; 
-        vector<int> bfs ; 
         vector<bool> vis(n,false);
 
         for(i=0;i<n;i++)
