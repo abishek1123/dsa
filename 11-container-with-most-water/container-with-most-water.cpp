@@ -1,9 +1,8 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        int n = height.size();
         int left=0;
-        int right=n-1;
+        int right=height.size()-1;
         int maxarr = -99999;
         while(left<right)
         {
